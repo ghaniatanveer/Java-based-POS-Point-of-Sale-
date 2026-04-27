@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.pos.controllers.DashboardController">
+    <top>
+        <VBox spacing="8.0" styleClass="topbar">
+            <padding><Insets top="12" right="16" bottom="12" left="16"/></padding>
+            <Label fx:id="companyLabel" styleClass="heading"/>
+            <Label fx:id="welcomeLabel"/>
+            <Label fx:id="lowStockLabel"/>
+            <HBox spacing="8.0">
+                <Button text="Products" onAction="#openProducts"/>
+                <Button text="New Sale" onAction="#openSales"/>
+                <Button text="Customers" onAction="#openCustomers"/>
+                <Button text="Settings" onAction="#openSettings"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="10.0" style="-fx-padding: 16;">
+            <HBox spacing="10">
+                <DatePicker fx:id="fromDate"/>
+                <DatePicker fx:id="toDate"/>
+                <Button text="Filter Sales" onAction="#salesFilter"/>
+                <Button text="Today Slip" onAction="#setTodayRange"/>
+                <Button text="Monthly Slip" onAction="#setMonthlyRange"/>
+                <Button text="Yearly Slip" onAction="#setYearlyRange"/>
+                <Button text="Print PDF" onAction="#printSelectedReport" styleClass="primary-btn"/>
+            </HBox>
+            <Label fx:id="totalSalesLabel" text="Total Sales (range): 0.00" styleClass="heading-small"/>
+            <TableView fx:id="salesTable">
+                <columns>
+                    <TableColumn fx:id="saleIdColumn" text="Sale ID" prefWidth="120"/>
+                    <TableColumn fx:id="saleDateColumn" text="Date / Time" prefWidth="220"/>
+                    <TableColumn fx:id="totalColumn" text="Total (PKR)" prefWidth="160"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

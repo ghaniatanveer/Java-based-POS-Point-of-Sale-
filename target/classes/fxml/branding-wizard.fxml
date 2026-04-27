@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.pos.controllers.BrandingWizardController">
+    <children>
+        <VBox spacing="8" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+            <Label text="Branding Wizard (Hidden Admin Panel)" styleClass="heading-small"/>
+            <Label text="Use this panel to rebrand for each business client."/>
+            <TextField fx:id="companyNameField" promptText="Company Name"/>
+            <TextField fx:id="addressField" promptText="Address"/>
+            <TextField fx:id="phoneField" promptText="Phone"/>
+            <TextField fx:id="taxRateField" promptText="Tax Rate"/>
+            <TextField fx:id="receiptFooterField" promptText="Receipt Footer"/>
+            <TextField fx:id="logoPathField" promptText="Logo Path"/>
+            <Button text="Apply Branding" onAction="#onSave" styleClass="primary-btn"/>
+        </VBox>
+    </children>
+</AnchorPane>

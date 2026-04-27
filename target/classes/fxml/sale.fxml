@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.pos.controllers.SaleController">
+    <top>
+        <HBox spacing="8" style="-fx-padding: 12;">
+            <TextField fx:id="searchField" promptText="Search/scan barcode"/>
+            <Button text="Search" onAction="#onSearchProduct"/>
+            <ComboBox fx:id="productCombo" prefWidth="280"/>
+            <TextField fx:id="qtyField" promptText="Qty" prefWidth="80"/>
+            <Button text="Add Item" onAction="#onAddItem"/>
+            <TextField fx:id="discountField" promptText="Discount" prefWidth="120"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="cartTable">
+            <columns>
+                <TableColumn fx:id="itemNameColumn" text="Product" prefWidth="320"/>
+                <TableColumn fx:id="itemQtyColumn" text="Qty" prefWidth="90"/>
+                <TableColumn fx:id="itemPriceColumn" text="Price" prefWidth="120"/>
+                <TableColumn fx:id="itemTotalColumn" text="Line Total" prefWidth="140"/>
+            </columns>
+            <padding><Insets top="8" right="12" bottom="12" left="12"/></padding>
+        </TableView>
+    </center>
+    <bottom>
+        <VBox spacing="6" style="-fx-padding: 12;">
+            <Label fx:id="subtotalLabel" text="Subtotal: 0.00"/>
+            <Label fx:id="taxLabel" text="Tax: 0.00"/>
+            <Label fx:id="grandTotalLabel" text="Total: 0.00"/>
+            <Button fx:id="checkoutButton" text="Checkout + Save Receipt PDF" onAction="#onCheckout" styleClass="primary-btn"/>
+        </VBox>
+    </bottom>
+</BorderPane>

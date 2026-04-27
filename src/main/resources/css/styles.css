@@ -1,0 +1,38 @@
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #f4f6fb;
+}
+
+.heading {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1d3557;
+}
+
+.heading-small {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.topbar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dbe2ef;
+    -fx-border-width: 0 0 1 0;
+}
+
+.card {
+    -fx-background-color: #ffffff;
+    -fx-max-width: 420;
+    -fx-background-radius: 10;
+    -fx-border-color: #d9e2ec;
+    -fx-border-radius: 10;
+}
+
+.primary-btn {
+    -fx-background-color: #2a9d8f;
+    -fx-text-fill: white;
+}
+
+.danger-text {
+    -fx-text-fill: #c1121f;
+}

@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\title{Java-based POS System: Final Report}
+\author{Prepared for Resellable POS Deployment}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Overview}
+This report documents a complete Java-based Point of Sale (POS) system built with JavaFX, Maven, and an embedded H2 database. The product is designed as a reusable core that can be rebranded and sold to multiple businesses with no source code changes.
+
+\section{Architecture}
+\subsection{Technology}
+\begin{itemize}[leftmargin=*]
+    \item Java 17, JavaFX (FXML + CSS)
+    \item Maven build system
+    \item H2 embedded file database
+    \item OpenPDF receipt export
+\end{itemize}
+
+\subsection{Design Patterns}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{MVC}: JavaFX controllers + FXML views + model classes
+    \item \textbf{DAO}: Data access abstracted in dedicated DAO classes
+    \item \textbf{Singleton-style utility}: Database connection provider
+\end{itemize}
+
+\section{Features Implemented}
+\begin{itemize}[leftmargin=*]
+    \item Login with role field (Admin/Cashier)
+    \item Dashboard with low-stock and sales history range filter
+    \item Product management (CRUD, search by name/barcode)
+    \item Customer listing
+    \item New sale workflow with cart, discount, tax, checkout
+    \item PDF receipt generation in \texttt{receipts/}
+    \item Settings management for branding and tax
+    \item Hidden Branding Wizard with \texttt{Ctrl+Shift+B}
+\end{itemize}
+
+\section{Database Schema}
+\subsection{Main Tables}
+\begin{itemize}[leftmargin=*]
+    \item \texttt{users(id, username, password, role)}
+    \item \texttt{categories(id, name)}
+    \item \texttt{products(id, name, barcode, category\_id, price, stock\_qty)}
+    \item \texttt{customers(id, full\_name, phone, email)}
+    \item \texttt{sales(id, customer\_id, cashier\_user\_id, created\_at, subtotal, discount, tax, total)}
+    \item \texttt{sale\_items(id, sale\_id, product\_id, quantity, unit\_price, line\_total)}
+    \item \texttt{company\_settings(setting\_key, setting\_value)}
+\end{itemize}
+
+\section{UML Description (Textual)}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{MainApp} initializes database and launches \texttt{login.fxml}
+    \item Controllers call DAOs for persistence
+    \item DAOs use \texttt{DatabaseConnection} for H2 connectivity
+    \item \texttt{Sale} aggregates \texttt{SaleItem}
+    \item \texttt{SettingsController} updates both DB settings and \texttt{config.properties}
+\end{itemize}
+
+\section{Rebranding for Reselling}
+To onboard a new client (for example ABC Store), change branding values using:
+\begin{enumerate}[leftmargin=*]
+    \item Settings screen, or
+    \item Branding Wizard (\texttt{Ctrl+Shift+B}), or
+    \item Direct edits in \texttt{config.properties} / \texttt{company\_settings}.
+\end{enumerate}
+
+No code changes are required for company name, address, phone, tax rate, logo path, or receipt footer.
+
+\section{User Manual}
+\subsection{Login}
+Use default credentials:
+\begin{itemize}[leftmargin=*]
+    \item Admin: \texttt{admin/admin123}
+    \item Cashier: \texttt{cashier/cashier123}
+\end{itemize}
+
+\subsection{Create Sale}
+\begin{enumerate}[leftmargin=*]
+    \item Open New Sale
+    \item Search or scan item
+    \item Add quantity to cart
+    \item Apply discount
+    \item Checkout to store sale and generate PDF receipt
+\end{enumerate}
+
+\subsection{Manage Products}
+Open Products, then create/update/delete products and run keyword search.
+
+\subsection{Set Branding}
+Open Settings and update business profile values. Save and restart if needed.
+
+\section{Build and Deployment}
+\begin{verbatim}
+mvn clean javafx:run
+mvn clean package
+\end{verbatim}
+
+Database and receipts are file-based and portable.
+
+\end{document}

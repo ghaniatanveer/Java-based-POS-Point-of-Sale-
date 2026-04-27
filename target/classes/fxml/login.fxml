@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.pos.controllers.LoginController">
+    <children>
+        <VBox alignment="CENTER" spacing="14.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" styleClass="card">
+            <padding>
+                <Insets top="24.0" right="24.0" bottom="24.0" left="24.0"/>
+            </padding>
+            <Label text="Point of Sale Login" styleClass="heading"/>
+            <TextField fx:id="usernameField" promptText="Username"/>
+            <PasswordField fx:id="passwordField" promptText="Password"/>
+            <Button text="Login" onAction="#onLogin" styleClass="primary-btn"/>
+            <Label fx:id="statusLabel" styleClass="danger-text"/>
+            <Label text="Default admin: admin/admin123"/>
+        </VBox>
+    </children>
+</AnchorPane>

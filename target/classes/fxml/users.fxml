@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.pos.controllers.UserManagementController">
+    <children>
+        <TableView fx:id="userTable" AnchorPane.topAnchor="12" AnchorPane.bottomAnchor="12" AnchorPane.leftAnchor="12" AnchorPane.rightAnchor="12">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="80"/>
+                <TableColumn fx:id="usernameColumn" text="Username" prefWidth="220"/>
+                <TableColumn fx:id="roleColumn" text="Role" prefWidth="180"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

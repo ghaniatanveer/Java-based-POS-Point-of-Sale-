@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.pos.controllers.SettingsController">
+    <children>
+        <VBox spacing="10" AnchorPane.topAnchor="12" AnchorPane.leftAnchor="12" AnchorPane.rightAnchor="12">
+            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+            <Label text="System Branding & Tax Settings" styleClass="heading-small"/>
+            <TextField fx:id="companyNameField" promptText="Company Name"/>
+            <TextField fx:id="addressField" promptText="Address"/>
+            <TextField fx:id="phoneField" promptText="Phone"/>
+            <TextField fx:id="taxRateField" promptText="Tax Rate e.g 0.15"/>
+            <TextField fx:id="receiptFooterField" promptText="Receipt Footer"/>
+            <TextField fx:id="logoPathField" promptText="Logo Path"/>
+            <Button text="Save Settings" onAction="#onSave" styleClass="primary-btn"/>
+        </VBox>
+    </children>
+</AnchorPane>

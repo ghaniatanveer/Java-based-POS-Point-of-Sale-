@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.pos.controllers.ProductController">
+    <top>
+        <GridPane hgap="8" vgap="8" style="-fx-padding: 12;">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="20"/>
+                <ColumnConstraints percentWidth="20"/>
+                <ColumnConstraints percentWidth="20"/>
+                <ColumnConstraints percentWidth="20"/>
+                <ColumnConstraints percentWidth="20"/>
+            </columnConstraints>
+            <TextField fx:id="nameField" promptText="Name" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="barcodeField" promptText="Barcode" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <ComboBox fx:id="categoryCombo" promptText="Category" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <TextField fx:id="priceField" promptText="Price" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+            <TextField fx:id="stockField" promptText="Stock Qty" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+            <Button text="Save" onAction="#onSave" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Button text="Update" onAction="#onUpdate" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Button text="Delete" onAction="#onDelete" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            <TextField fx:id="searchField" promptText="Search name/barcode" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+            <Button text="Search" onAction="#onSearch" GridPane.rowIndex="1" GridPane.columnIndex="4"/>
+        </GridPane>
+    </top>
+    <center>
+        <TableView fx:id="table" onMouseClicked="#onTableSelect">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="70"/>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="260"/>
+                <TableColumn fx:id="barcodeColumn" text="Barcode" prefWidth="180"/>
+                <TableColumn fx:id="priceColumn" text="Price" prefWidth="120"/>
+                <TableColumn fx:id="stockColumn" text="Stock" prefWidth="120"/>
+            </columns>
+            <padding><Insets top="8" right="12" bottom="12" left="12"/></padding>
+        </TableView>
+    </center>
+</BorderPane>
